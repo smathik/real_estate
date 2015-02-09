@@ -45,10 +45,12 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
         });
     }
 
-    $scope.add_user = function(username, paswrd){
+    $scope.add_user = function(username, paswrd, mob_no, city){
     	var PostData = {
     		username : username,
     		paswrd : paswrd,
+            mob_no : mob_no,
+            city : city
 
     	};
     	console .log(PostData)
@@ -72,15 +74,15 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
             });
         };
 
-    $scope.buy_property = function(project_name){
-        var PostData = {
-            project_name:project_name,
-        };
-        console .log(PostData)
+    $scope.buy_property = function(obj){
+        // var PostData = {
+        //     project_name:project_name,
+        // };
+        console .log(obj)
         $http({
             url: '/buy_property/',
             method: "POST",
-            data : PostData,
+            data : obj,
         });
     };
 

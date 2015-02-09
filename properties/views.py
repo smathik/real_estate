@@ -57,8 +57,9 @@ def add_user(request):
         print '<<<user'
         true, false = True, False
         data = json.loads(request.body)
-        # proper = 'dal'
-        user_profile.objects.create(  user_name = data['username'], user_pswrd = data['paswrd'])
+        # project = company_profile.objects.filter(project_name=data['propertyname']).id
+        # print project
+        user_profile.objects.create(  user_name = data['username'], user_pswrd = data['paswrd'], mobile_no = data['mob_no'], city = data['city'])    
     return HttpResponse(content=json.dumps(data), content_type="application/json; charset=UTF-8")
 
 
@@ -79,8 +80,16 @@ def clientpage(request):
 
 def buy_property(request):
     if request.method == 'POST':
+        true, false = True, False
+        data = json.loads(request.body)
+        getpass.getuser()
         print '>>>buy_property'
         print data
+        # user = user_profile.objects.get(id = 3).user_name
+        # print '>>>user',user
+        propert = data['project_name']
+        buy_property.objects.create(allocate_property_id = propert)
+
     return HttpResponse(content=json.dumps(data), content_type="application/json; charset+UTF-8")
 
 
