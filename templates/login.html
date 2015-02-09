@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" ng-app="homepage"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" >
+  <title>Real Estate</title>
+  <meta name="description" content="">
+  <meta name="viewport">
+  <link rel="stylesheet" href="{{ STATIC_URL }}stylesheets/homepage.css">
+  <link href="{{ STATIC_URL }}/bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body id="home">
+
+  <div class="">
+    <img src="{{ STATIC_URL }}/images/4461988~d3c22c40ce292a8766eed7c57c7884fbefb567ff-stocklarge.jpeg" style="display:block;margin:auto;">
+
+    {% csrf_token %}
+    {%verbatim%}
+    <div class ="main_header"></div>
+    <div class="header_left">
+
+    </div>
+
+    <div class="form-signin" >
+      <span ng-controller="LoginController">
+        <h3 style="text-align:center;">Enter details...</h3>
+        <input type="text" style="width: 284px;height: 30px;border: 1px solid rgb(107, 180, 107);" class="username_box" ng-model="username" autocomplete="on" placeholder="Username" ng-enter="continue_login(username,password)"/>
+        <input type="password" class="username_box" style="width: 284px;height: 24px;" ng-model="password" placeholder="Password" ng-enter="continue_login(username,password)"/>
+        <button class="login_button" ng-click="continue_login(username,password)">Submit</button>
+        <span ng-show="error_status" class="error_message">{{error_message}}</span>
+      </span>
+    </div>
+    
+    {%endverbatim%}
+  </div>
+</body>  
+<script src="{{STATIC_URL}}scripts/angular.js"></script> 
+<script src="{{STATIC_URL}}scripts/angular-resource.js?v=ea561588a753dc68e5355947849d0e9e"></script>
+<script src="{{STATIC_URL}}scripts/angular_cookie.js"></script>
+<script src="{{STATIC_URL}}scripts/login.js"></script> 
+<script src="{{STATIC_URL}}scripts/factories.js"></script>
+
+
+</html>

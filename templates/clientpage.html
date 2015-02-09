@@ -1,0 +1,48 @@
+<html  ng-app = "homepage">
+<head>
+  <title>Home</title>
+
+<body ng-controller = "SuperAdminController">
+
+{% csrf_token %}
+{% verbatim %} 
+
+
+<button type="button" class="close" ng-click="cancel()" style="top: -30%;" >&times;</button>
+<table border="1" bgcolor="white" style="border-radius:10px;width:100%;height:30px;border-color:grey;margin-top:40px;" ng-init = "fetch_property()">
+	<tr>
+	<th> Property Name </th>
+	<th> Available Plots </th>
+	<th> Available Flats </th>
+	<th> Book Now </th>
+    </tr>
+    <tr style = "width:1000px" ng-repeat = "i in fetch_property_data">
+    	<td>{{i.project_name}}</td>
+    	<td>{{i.project_plot}}</td>
+    	<td>{{i.project_flat}}</td>
+    	<td><button ng-click="buy_property(i)">Buy</button></td>
+    	<!-- <button> BUY</button> -->
+    </tr>
+</table>
+
+
+{% endverbatim %}
+
+</body>
+
+
+
+<script src="{{STATIC_URL}}scripts/angular.js">
+</script>
+
+<script src="{{STATIC_URL}}scripts/angular-resource.js?v=ea561588a753dc68e5355947849d0e9e"></script>
+<script src="{{STATIC_URL}}scripts/angular_cookie.js"></script>
+<script src="{{STATIC_URL}}scripts/home.js"></script>
+<script src="{{STATIC_URL}}scripts/factories.js"></script>
+<script src="{{STATIC_URL}}scripts/angular-route.js"></script>
+  
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+<script src="{{STATIC_URL}}scripts/jquery-1.9.1.min.js"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+</html>
