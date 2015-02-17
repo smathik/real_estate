@@ -25,3 +25,15 @@ class AddpropertyResources(ModelResource):
                                             project_flat = bundle.data.get('flats','') )
 
        raise ImmediateHttpResponse(response=HttpResponse(content=json.dumps('success'), content_type="application/json; charset=UTF-8"))
+
+    class Meta:
+
+    	resource_name = 'add_user'
+    	queryset = user_profile.objects.all()
+
+    def obj_create(self, bundle, request=None, **kwargs):
+
+    	print 'add_user>>>>>',bundle
+
+    	user_profile.objects.create(  user_name = bundle.data['username'], user_pswrd = bundle.data['paswrd'], mobile_no = bundle.data['mob_no'], city = bundle.data['city'])
+        raise ImmediateHttpResponse(response=HttpResponse(content=json.dumps('success'), content_type="application/json; charset=UTF-8"))

@@ -55,15 +55,16 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
     	};
     	console .log(PostData)
     	$http({
-    		url: '/add_user/',
+    		url: '/api/properties/add_user/',
     		method: "POST",
     		data : PostData,
-    	// }).success(function(response)){
-    	// 	if(response == 'success'){
-    	// 		alert('User has been added Successfully');
-    	// 	}
+    	}).success(function(response){
+    		if(response == 'success'){
+    			alert('User has been added Successfully');
+    		}
     	});
-    };
+    }
+
     $scope.fetch_property = function(){
         $http({
             url:'/fetch_property/',
