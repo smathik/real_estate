@@ -1,11 +1,14 @@
 from django.conf.urls import patterns, include, url
 from properties.models import *
 from properties.views import *
+from tastypie.api import Api
+from properties.resources import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-
+api  = Api(api_name="properties")
+api.register(AddpropertyResources())
 urlpatterns = patterns('',
     # Examples:
     # url(r'^admin/', include(admin.site.urls)),
@@ -15,12 +18,12 @@ urlpatterns = patterns('',
     url(r'^$', loginpage),
     
     url(r'^login/$', login_user),
-    url(r'^home/$', home),
+    url(r'^home/$', home),  
     url(r'^add_property/$', add_property),
     url(r'^add_user/$', add_user),
     url(r'^clientpage/$', clientpage),
     url(r'^fetch_property/$',fetch_property),
-    url(r'^buy_property/$',buy_property)
+    url(r'^buy_property/$',buy_property),
     # url(r'^logout/$', 'users.views.logout_view'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -28,4 +31,5 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include(api.urls)),
 )

@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class company_profile(models.Model):
 
 	# company_user = models.CharField(max_length=2000)
-	user = models.ForeignKey('user_profile')
+	# user = models.IntegerField('user_profile')
 	project_name = models.CharField(max_length=2000)
 	project_plot = models.CharField(max_length=2000)
 	project_flat = models.CharField(max_length=2000)

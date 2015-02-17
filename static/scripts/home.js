@@ -25,7 +25,7 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
             console.log(PostData)
 
             $http({
-                url: '/add_property/',
+                url: '/api/properties/add_property/',
                 method: "POST",
                 data: PostData,
            }).success(function(response) {   
@@ -74,7 +74,7 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
             });
         };
 
-    $scope.buy_property = function(obj){
+    $scope.buy_property = function(obj, username){
         // var PostData = {
         //     project_name:project_name,
         // };
@@ -83,6 +83,7 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
             url: '/buy_property/',
             method: "POST",
             data : obj,
+            username : username,
         });
     };
 
