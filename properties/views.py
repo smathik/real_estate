@@ -81,14 +81,14 @@ def clientpage(request):
 def buy_propertys(request):
     if request.method == 'POST':
         true, false = True, False
-        user = request.user.username
-        print 'user>>>', user
         data = json.loads(request.body)
-        print request.user
-        print data
-        # user = user_profile.objects.get(id = 3).user_name
-        # print '>>>user',user
-        # propert = data['project_name']
+
+        buy_property.objects.create(    user = data.get('username',''),
+                                        pro_name = data.get('obj', ''),
+                                        flat = data.get('flat', ''),
+                                        plot = data.get('plot', '')
+                                        )
+
 
 
     return HttpResponse(content=json.dumps('success'), content_type="application/json; charset+UTF-8")

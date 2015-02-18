@@ -18,9 +18,9 @@
     </tr>
     <tr style = "width:1000px" ng-repeat = "i in fetch_property_data">
     	<td>{{i.project_name}}</td>
-    	<td>{{i.project_plot}}</td>
-    	<td>{{i.project_flat}}</td>
-    	<td><button ng-click="buy_property(i)">Buy</button></td>
+    	<td>{{i.project_plot}}<input type="text" ng-model="plot"></td>
+    	<td>{{i.project_flat}}<input type="text" ng-model="flat"></td>
+    	<td><button ng-click="buy_property(i.project_name,plot,flat)">Buy</button></td>
     	<!-- <button> BUY</button> -->
     </tr>
 </table>

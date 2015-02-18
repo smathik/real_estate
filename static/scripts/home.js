@@ -75,15 +75,17 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
             });
         };
 
-    $scope.buy_property = function(obj){
-        // var PostData = {
-        //     project_name:project_name,
-        // };
-        console .log(obj)
+    $scope.buy_property = function(obj, plot, flat){
+        var PostData = {
+            obj : obj,
+            plot:plot,
+            flat:flat
+        };
+        console .log(PostData)
         $http({
             url: '/buy_propertys/',
             method: "POST",
-            data : obj,
+            data : PostData,
             // username : username,
         });
     };

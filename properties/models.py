@@ -27,7 +27,8 @@ class user_profile(models.Model):
 
 class buy_property(models.Model):
 
-	user = models.ForeignKey('user_profile')
-	allocate_property = models.ForeignKey('company_profile')
-	status =  models.CharField(max_length=2000)
+	user = models.CharField(max_length=2000)
+	pro_name = models.CharField(max_length=2000)
+	flat =  models.CharField(max_length=2000)
+	plot =  models.CharField(max_length=2000)
 
