@@ -64,33 +64,34 @@ def add_user(request):
 
 
 def fetch_property(request):
-  if request.method == 'GET':
-    print '>>>'
-    data = []
-    dat = company_profile.objects.all()
-    print '>>>data',data
-    for i in dat:
-        data.append({'project_name':i.project_name, 'project_plot':i.project_plot, 'project_flat':i.project_flat})
-    return HttpResponse(content=json.dumps(data), content_type="application/json; charset=UTF-8")
-  # return render(request, 'clientpage.html')
+  # if request.method == 'GET':
+  #   print '>>>'
+  #   data = []
+  #   dat = company_profile.objects.all()
+  #   print '>>>data',data
+  #   for i in dat:
+  #       data.append({'project_name':i.project_name, 'project_plot':i.project_plot, 'project_flat':i.project_flat})
+  #   return HttpResponse(content=json.dumps(data), content_type="application/json; charset=UTF-8")
+  return render(request, 'clientpage.html')
 
 def clientpage(request):
     return render(request, 'clientpage.html')
 
 
-def buy_property(request):
+def buy_propertys(request):
     if request.method == 'POST':
         true, false = True, False
+        user = request.user.username
+        print 'user>>>', user
         data = json.loads(request.body)
-        getpass.getuser()
-        print '>>>buy_property'
+        print request.user
         print data
         # user = user_profile.objects.get(id = 3).user_name
         # print '>>>user',user
-        propert = data['project_name']
-        buy_property.objects.create(allocate_property_id = propert)
+        # propert = data['project_name']
 
-    return HttpResponse(content=json.dumps(data), content_type="application/json; charset+UTF-8")
+
+    return HttpResponse(content=json.dumps('success'), content_type="application/json; charset+UTF-8")
 
 
 

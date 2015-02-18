@@ -9,6 +9,8 @@ from properties.resources import *
 # admin.autodiscover()
 api  = Api(api_name="properties")
 api.register(AddpropertyResources())
+api.register(Adduser())
+api.register(fetchproperty())
 urlpatterns = patterns('',
     # Examples:
     # url(r'^admin/', include(admin.site.urls)),
@@ -22,8 +24,8 @@ urlpatterns = patterns('',
     url(r'^add_property/$', add_property),
     url(r'^add_user/$', add_user),
     url(r'^clientpage/$', clientpage),
-    url(r'^fetch_property/$',fetch_property),
-    url(r'^buy_property/$',buy_property),
+    # url(r'^fetch_property/$',fetch_property),
+    url(r'^buy_propertys/$',buy_propertys),
     # url(r'^logout/$', 'users.views.logout_view'),
 
     # Uncomment the admin/doc line below to enable admin documentation:

@@ -59,7 +59,7 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
     		method: "POST",
     		data : PostData,
     	}).success(function(response){
-    		if(response == 'success'){
+    		if(response == '"success"'){
     			alert('User has been added Successfully');
     		}
     	});
@@ -67,24 +67,24 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
 
     $scope.fetch_property = function(){
         $http({
-            url:'/fetch_property/',
-            method:'GET',
+            url:'/api/properties/fetch_property/',
+            method: 'GET' ,
             }).success(function(data){
                 console.log('success')
                 $scope.fetch_property_data = data;
             });
         };
 
-    $scope.buy_property = function(obj, username){
+    $scope.buy_property = function(obj){
         // var PostData = {
         //     project_name:project_name,
         // };
         console .log(obj)
         $http({
-            url: '/buy_property/',
+            url: '/buy_propertys/',
             method: "POST",
             data : obj,
-            username : username,
+            // username : username,
         });
     };
 
