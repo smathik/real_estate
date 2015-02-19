@@ -27,7 +27,22 @@
 
 </div>
 
-
+<table border="1" bgcolor="white" style="border-radius:10px;width:100%;height:30px;border-color:grey;margin-top:40px;" ng-init = "approve_property()">
+	<tr>
+	<!-- <th> Client </th> -->
+	<th> Property Name </th>
+	<th> Plot Booked </th>
+	<th> Flat Booked </th>
+	<th> Approved </th>
+    </tr>
+    <tr style = "width:1000px" ng-repeat = "i in fetch_property_data">
+    	<td>{{i.pro_name}}</td>
+    	<td>{{i.flat}}</td>
+    	<td>{{i.plot}}</td>
+    	<td><button ng-click="">Approved</button></td>
+    	<!-- <button> BUY</button> -->
+    </tr>
+</table>
 
 {% endverbatim %}
 

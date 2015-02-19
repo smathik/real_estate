@@ -20,6 +20,7 @@ def login_user(request):
     password = data['password']
     user = authenticate(username = username, password = password)
     client = user_profile.objects.filter(user_name = username, user_pswrd = password)
+    print request.user
     if user:
         response = "admin"
         return HttpResponse(content=json.dumps(response), content_type="application/json; charset=UTF-8")
@@ -92,6 +93,16 @@ def buy_propertys(request):
 
 
     return HttpResponse(content=json.dumps('success'), content_type="application/json; charset+UTF-8")
+
+
+# def approve_property(request):
+#     if request.method == 'GET':
+#       data =[]
+#       dat = buy_property.objects.all()
+#       print '>>>data',data
+#       for i in dat:
+#         data.append({'pro_name':i.pro_name, 'flat':i.flat, 'plot':i.plot})
+#     return HttpResponse(content=json.dumps(data), content_type="application/json; charset=UTF-8")
 
 
 

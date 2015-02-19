@@ -74,6 +74,18 @@ app.controller('SuperAdminController',function ($scope,$http,$cookies) {
                 $scope.fetch_property_data = data;
             });
         };
+        
+
+    $scope.approve_property = function(){
+        $http({
+            url:'/api/properties/approve_property/',
+            method: 'GET' ,
+            }).success(function(data){
+                console.log('success')
+                $scope.fetch_property_data = data;
+            });
+        };
+
 
     $scope.buy_property = function(obj, plot, flat){
         var PostData = {

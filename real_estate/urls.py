@@ -11,6 +11,7 @@ api  = Api(api_name="properties")
 api.register(AddpropertyResources())
 api.register(Adduser())
 api.register(fetchproperty())
+api.register(approve_property())
 urlpatterns = patterns('',
     # Examples:
     # url(r'^admin/', include(admin.site.urls)),
@@ -26,6 +27,7 @@ urlpatterns = patterns('',
     url(r'^clientpage/$', clientpage),
     # url(r'^fetch_property/$',fetch_property),
     url(r'^buy_propertys/$',buy_propertys),
+    # url(r'^approve_property/$',approve_property),
     # url(r'^logout/$', 'users.views.logout_view'),
 
     # Uncomment the admin/doc line below to enable admin documentation:

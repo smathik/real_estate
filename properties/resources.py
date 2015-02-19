@@ -61,3 +61,36 @@ class fetchproperty(ModelResource):
         raise ImmediateHttpResponse(response=HttpResponse(content=json.dumps(data), content_type="application/json"))
 
 
+class approve_property(ModelResource):
+
+    class Meta:
+
+        resource_name = 'approve_property'
+        queryset = buy_property.objects.all()
+
+    def get_object_list(self, request):
+
+        data = []
+        obj = buy_property.objects.all()
+        for i in obj:
+            data.append({'pro_name':i.pro_name, 'flat':i.flat, 'plot':i.plot})
+        raise ImmediateHttpResponse(response=HttpResponse(content=json.dumps(data), content_type="application/json"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
