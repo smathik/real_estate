@@ -12,6 +12,7 @@ api.register(AddpropertyResources())
 api.register(Adduser())
 api.register(fetchproperty())
 api.register(approve_property())
+api.register(realestateauthorization())
 urlpatterns = patterns('',
     # Examples:
     # url(r'^admin/', include(admin.site.urls)),
@@ -20,7 +21,7 @@ urlpatterns = patterns('',
     # url(r'^accounts/login/$', 'insure.views.home'),
     url(r'^$', loginpage),
     
-    url(r'^login/$', login_user),
+    # url(r'^login/$', login_user),
     url(r'^home/$', home),  
     url(r'^add_property/$', add_property),
     url(r'^add_user/$', add_user),

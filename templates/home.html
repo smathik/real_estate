@@ -1,33 +1,36 @@
 <html  ng-app = "homepage">
+
 <head>
   <title>Home</title>
+
+
 
 <body ng-controller = "SuperAdminController">
 
 {% csrf_token %}
 {% verbatim %} 
 
-<div><h1> Property </h1>
-  Property Name : <input type = "text" ng-model = "propertyname" placeholder = 'Property' >
-  No. of Plots : <input type = "text" ng-model = "plots" placeholder = 'plot'>
-  No. of Flats : <input type = "text" ng-model = "flats" placeholder = 'flats'>
-<button style="" class="myButton"  ng-click = "add_property(propertyname, plots, flats)">Create
+<i><div align="center"  style="background-color: #CECEF6; height: 500px; width: 300px; float: left"><h1>Add Property </h1>
+  <p><i>Property Name : &nbsp;<input type = "text" ng-model = "propertyname" placeholder = 'Property' ></p><i>
+  <p>No. of Plots : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" ng-model = "plots" placeholder = 'plot'></p>
+  <p>No. of Flats : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" ng-model = "flats" placeholder = 'flats'></p>
+<button style="" class="myButton"  ng-click = "add_property(propertyname, plots, flats)">Add
 </button>
 
-</div>
+</div><i>
 
-<div>
+<div  align="center"  style="background-color: #FA8258; height: 500px; width: 300px; float: left">
   <h1>Add User </h1>
-  User Name : <input type = "text" ng-model = "username" placeholder = 'username' >
-  Password : <input type = "text" ng-model = "paswrd" placeholder = 'password'>
-  Mobile : <input type = "text" ng-model = "mob_no" placeholder = 'Mobile'>
-  City : <input type = "text" ng-model = "city" placeholder = 'City'>
-<button style="" class="myButton"  ng-click = "add_user(username, paswrd, mob_no, city)">Create
+  <p>User Name : <input type = "text" ng-model = "username" placeholder = 'username' ></p>
+  <p>Password : &nbsp;&nbsp;<input type = "text" ng-model = "paswrd" placeholder = 'password'></p>
+  <p>Mobile : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" ng-model = "mob_no" placeholder = 'Mobile'></p>
+  <p>City : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type = "text" ng-model = "city" placeholder = 'City'></p>
+<button style="" class="myButton"  ng-click = "add_user(username, paswrd, mob_no, city)">Add
 </button>
 
 </div>
-
-<table border="1" bgcolor="white" style="border-radius:10px;width:100%;height:30px;border-color:grey;margin-top:40px;" ng-init = "approve_property()">
+<div style="background-color: #BDBDBD; height: 500px; width: 900px; float: right"><h1>List of Clients for Approval <h1>
+<table border="1" bgcolor="#D0FA58" style="border-radius:10px;width:100%;height:30px;border-color:grey;margin-top:40px;" ng-init = "approve_property()">
 	<tr>
 	<!-- <th> Client </th> -->
 	<th> Property Name </th>
@@ -43,6 +46,7 @@
     	<!-- <button> BUY</button> -->
     </tr>
 </table>
+</div>
 
 {% endverbatim %}
 

@@ -3,28 +3,33 @@
   <title>Home</title>
 
 <body ng-controller = "SuperAdminController">
+<img src="{{ STATIC_URL }}/images/5.jpg" style="display:block;margin:auto;width: 768px;height:600px;float:left;">
+
 
 {% csrf_token %}
 {% verbatim %} 
+        <!-- <img src="{{ STATIC_URL }}/images/4461988~d3c22c40ce292a8766eed7c57c7884fbefb567ff-stocklarge.jpeg" style="display:block;margin:auto;"> -->
 
+<div style="background-color: #4B8A08; height: 600px; width: 800px; float: right">
 
+<i><h1>Hello Sir, List of Available properties</h1><i>
 
 <table border="1" bgcolor="white" style="border-radius:10px;width:100%;height:30px;border-color:grey;margin-top:40px;" ng-init = "fetch_property()">
 	<tr>
-	<th> Property Name </th>
-	<th> Available Plots </th>
-	<th> Available Flats </th>
+	<th> Available Property </th>{{username}}
+	<th> Plots </th>
+	<th> Flats </th>
 	<th> Book Now </th>
     </tr>
     <tr style = "width:1000px" ng-repeat = "i in fetch_property_data">
     	<td>{{i.project_name}}</td>
-    	<td>{{i.project_plot}}<input type="text" ng-model="plot"></td>
-    	<td>{{i.project_flat}}<input type="text" ng-model="flat"></td>
+    	<td>{{i.project_plot}}<input type="text" ng-model="plot" placeholder="Buy"></td>
+    	<td>{{i.project_flat}}<input type="text" ng-model="flat" placeholder="Buy"></td>
     	<td><button ng-click="buy_property(i.project_name,plot,flat)">Buy</button></td>
     	<!-- <button> BUY</button> -->
     </tr>
 </table>
-
+</div>
 
 {% endverbatim %}
 

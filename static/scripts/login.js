@@ -63,15 +63,18 @@ $scope.continue_login = function(username,password){
                   };
                   console.log(d)
                   // $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
-                  var to = "/login/";
+                  var to = "/api/properties/login_user/";
                   $http.post(to, d).success(function (response) {
                       console.log(response)
-                      if(response ==  '"admin"'){
+                      if(response['response'] ==  '"admin"'){
                         window.location =  '/home/';
                       }
-                      else if (response == '"client"'){
+                      else if (response['response'] == '"client"'){
                         alert('Client login')
                         window.location =  '/clientpage/';
+                        $scope.username = response['username'];
+                        console.log(response)
+                        console.log($scope.username)
                       }
                       else if (response == '"user not registered"'){
                         alert('This User is not registered')
